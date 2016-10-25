@@ -34,9 +34,8 @@ ctrl+c on terminal to close :p
 
 */
 
-// we import necessary classes.
+// we start by importing necessary classes.
 import java.awt.*;
-import java.awt.event.*;
 import java.io.*;
 import java.util.*;
 
@@ -84,6 +83,10 @@ class Arc implements Comparable<Arc>{
 		// circularly filing coordinates of nodes  , can also use random!.
 		int angle = 0;
 		for(int i=0; i < this.n ; i++){
+
+			//little bit mathematics :p... to get circular coordinates , 
+			// x = r*cos(angle)+j  
+			// y = r*sin(angle)+k       for a circle with centre (j,k) and radius r. 
 			int x = (int) (100 * Math.cos(angle * (Math.PI / 180)) + 100.0);
 			int y = (int) (100 * Math.sin(angle * (Math.PI / 180)) + 100.0);
 			nodes[i] = new Point(x,y,i);
@@ -102,7 +105,6 @@ class Arc implements Comparable<Arc>{
 
 		// c = count of total edges in MST.
 		int c = 0;
-		System.out.println(edges.length);
 		Arrays.sort(edges);
 		for(int i = 0; i < e; i++ ){
 			if(uf.find(edges[i].from) != uf.find(edges[i].to)){
@@ -192,7 +194,6 @@ public class MSTGUIFrame extends Frame {
 
 		// Drawing MST lines in blue
 		int mst[] = graph.mst();
-		System.out.println(mst.length);
 		g.setColor(blue);
 		for(int i=0;i<mst.length;i++){
 			int from=graph.edges[mst[i]].from;
@@ -227,3 +228,7 @@ public class MSTGUIFrame extends Frame {
 		f.setVisible(true);
 	}
 }
+
+
+
+// Bugs? mail irshadpi77@gmail.com
