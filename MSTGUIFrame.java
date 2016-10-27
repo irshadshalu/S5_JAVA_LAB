@@ -38,7 +38,6 @@ ctrl+c on terminal to close :p
 import java.awt.*;
 import java.io.*;
 import java.util.*;
-
 // we define point class as given in question.
 class Point{
 	public int x,y,id;
@@ -46,7 +45,6 @@ class Point{
 		this.x  = x;
 		this.y  = y;
 		this.id = id;
-		
 	}
 }
 // we define arc class as in question
@@ -77,9 +75,10 @@ class Arc implements Comparable<Arc>{
 
 		this.n = n;
 		this.e = e;
+		this.edges = edges;
+		
 		nodes = new Point[this.n + 1];
-		this.edges = edges;	
-
+		
 		// circularly filing coordinates of nodes  , can also use random!.
 		int angle = 0;
 		for(int i=0; i < this.n ; i++){
@@ -126,30 +125,30 @@ class Arc implements Comparable<Arc>{
 // This is a basic UF structure without path compression,etc. 
 // We can improve this by union by rank and find my path compression!( which is used in applet code )
 
-class UF{
-  	private int[] parent;
-    private int total;   
-    public UF(int n){
-    	this.total=n+1;
-    	parent = new int[n+1];
+	class UF{
+		private int[] parent;
+	private int total;   
+	public UF(int n){
+		this.total=n+1;
+		parent = new int[n+1];
 
-    	// initial makeset on constructor
-    	for(int i=0;i<n+1;i++){
-    		parent[i]=i;
-    	}
-    }
-    // recursive find function
-    public int find(int x){
-    	if(parent[x]==x)
-    		return x;
-    	else
-    		return find(parent[x]);
-    }
-    public void union(int x,int y){
-    	int xRoot = parent[x];
-    	int yRoot = parent[y];
-    	parent[xRoot] = yRoot;	
-    }
+		// initial makeset on constructor
+		for(int i=0;i<n+1;i++){
+			parent[i]=i;
+		}
+	}
+	// recursive find function
+	public int find(int x){
+		if(parent[x]==x)
+			return x;
+		else
+			return find(parent[x]);
+	}
+	public void union(int x,int y){
+		int xRoot = parent[x];
+		int yRoot = parent[y];
+		parent[xRoot] = yRoot;	
+	}
 }
 
 
