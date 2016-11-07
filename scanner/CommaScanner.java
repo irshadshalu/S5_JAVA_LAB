@@ -1,5 +1,4 @@
 package scanner;
-import java.util.*;
 
 public class CommaScanner {
 	String[] elements;
