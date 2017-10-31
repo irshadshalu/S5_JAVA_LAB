@@ -1,4 +1,4 @@
-# S5_JAVA_LAB
+# S5__JAVA__LAB
 Programs I wrote for S5 Object Oriented Programming Lab.
 Here is the syllabus 
 
